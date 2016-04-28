@@ -1,0 +1,65 @@
+{% load staticfiles %}
+
+<!DOCTYPE html> 
+
+
+<html>
+    <body>    
+    </body>
+    
+        <p>Enter Youtube URL below</p>
+        <br>
+
+        <form action="{% url 'search' %}" method="GET">
+
+            <input type="text" name="url" style="width: 800px;">
+            
+            <br>
+            <br>
+            
+            <p>If you want just part of the song, then specify the times (in seconds).</p>
+            <p>For example: If you want 1:05 to 1:50, then enter in 65 and 110</p>
+            <p>If empty, then the whole song/video is fetched.</p>
+            
+            <input type="text" name="start_time" style="width: 40px;">
+            <input type="text" name="stop_time" style="width: 40px;">
+            <br><br>
+            <input type="radio" name="option" id="item1" value="audio" checked>
+            <label for="item1">Audio</label>
+            <br/>
+            <input type="radio" name="option" id="item2" value="video">
+            <label for="item2">Video</label>
+            <br/>
+
+            <br><br>
+            <input type="submit" value="Download" style="width: 140px; height: 50px;">
+        </form>
+    
+        <a id="download_link" href="{% static filename %}" download hidden></a>
+    
+    
+        <a href="/"> Search Again </a>
+        {% if file_found %}
+            
+            <script>
+     
+                    
+                    document.getElementById("download_link").click();
+
+            </script>        
+    
+        {% endif %}
+        <br>
+    
+    
+    <p>{{ message }}</p>
+    <footer>
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/main.js' %}"></script> 
+    
+    </footer>
+
+</html>
