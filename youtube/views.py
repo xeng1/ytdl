@@ -95,6 +95,7 @@ def validated(url, start, stop, option):
 def fetch_video(url):
     
     global FILENAME
+    global pA_path
     yt = YouTube(url)
     FILENAME = yt.filename
 
@@ -103,7 +104,8 @@ def fetch_video(url):
 
 def fetch_audio(start_time, stop_time):
     
-    
+    global FILENAME
+    global pA_path
     video_name = FILENAME + ".mp4"
     audio_name = FILENAME + ".mp3"
     
@@ -124,8 +126,7 @@ def fetch_audio(start_time, stop_time):
 
 def clear_media_directory():
     
-    
-    folder = 'static/media/'
+
     for the_file in os.listdir(pA_path):
         file_path = os.path.join(pA_path, the_file)
         try:
