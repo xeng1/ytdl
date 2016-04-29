@@ -126,8 +126,8 @@ def clear_media_directory():
     
     
     folder = 'static/media/'
-    for the_file in os.listdir(folder):
-        file_path = os.path.join(folder, the_file)
+    for the_file in os.listdir(pA_path):
+        file_path = os.path.join(pA_path, the_file)
         try:
             if os.path.isfile(file_path):
                 os.unlink(file_path)
