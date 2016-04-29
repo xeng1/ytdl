@@ -49,14 +49,14 @@ def search(request):
             #fetch the vid
             fetch_video(url)
             
-            filepath = 'media/' + FILENAME + ".mp4"
+            filepath = pA_path + FILENAME + ".mp4"
             
             #if audio option was chosen, then we create the mp3 file
             if (option == 'audio'):
                 try:
                     fetch_audio(start, stop)
                     
-                    filepath = 'media/' + FILENAME + ".mp3"
+                    filepath = pA_path + FILENAME + ".mp3"
                     
                     return render_to_response('index.html', {'message':'', 'filename': filepath, 'file_found': True})
                     #return render(request, 'index.html', {'message': '', 'filename': filepath, 'file_found': True})
