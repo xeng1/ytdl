@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 FILENAME = ""
 
-
+pA_path = '/home/ntxheehabnpam/ytdl/static/media'
 def main(request):
     
     clear_media_directory()
@@ -98,7 +98,7 @@ def fetch_video(url):
     yt = YouTube(url)
     FILENAME = yt.filename
 
-    (yt.filter('mp4')[-1]).download('static/media/')
+    (yt.filter('mp4')[-1]).download(pA_path)
     
 
 def fetch_audio(start_time, stop_time):
@@ -110,13 +110,13 @@ def fetch_audio(start_time, stop_time):
 
     if (start_time == ''):
 
-        clip = mp.VideoFileClip('static/media/' + video_name)
-        clip.audio.write_audiofile('static/media/' + audio_name)
+        clip = mp.VideoFileClip(pA_path + video_name)
+        clip.audio.write_audiofile(pA_path + audio_name)
     else:
         start = int(start_time)
         stop = int(stop_time)
-        clip = mp.VideoFileClip('static/media/' + video_name).subclip(start, stop)
-        clip.audio.write_audiofile('static/media/' + audio_name)
+        clip = mp.VideoFileClip(pA_path + video_name).subclip(start, stop)
+        clip.audio.write_audiofile(pA_path + audio_name)
                 
 
 
