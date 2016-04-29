@@ -20,7 +20,7 @@ FILENAME = ""
 pA_path = '/home/ntxheehabnpam/ytdl/static/media'
 def main(request):
     
-    #clear_media_directory()
+    clear_media_directory()
     return render(request, "index.html", {'message':'', 'filename':'', 'file_found': False})
     
 
