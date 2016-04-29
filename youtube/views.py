@@ -103,7 +103,7 @@ def fetch_video(url):
 
 def fetch_audio(start_time, stop_time):
     
-    
+    global FILENAME
     video_name = FILENAME + ".mp4"
     audio_name = FILENAME + ".mp3"
     
