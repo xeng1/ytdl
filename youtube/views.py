@@ -60,16 +60,16 @@ def search(request):
                     
                     return render_to_response('index.html', {'message':'', 'filename': filepath, 'file_found': True})
                     #return render(request, 'index.html', {'message': '', 'filename': filepath, 'file_found': True})
-                except:
-                    return render_to_response('index.html', {'message':'Error during MP3 extraction.', 'filename': '' , 'file_found': False})
+                except Exception as e:
+                    return render_to_response('index.html', {'message': e, 'filename': '' , 'file_found': False})
                     #return render(request, 'index.html', {'message': 'Error during MP3 extraction.', 'filename':'', 'file_found': False})
             
                        
             else:
                 return render_to_response('index.html', {'message':'', 'filename': filepath, 'file_found': True})
             
-        except:
-            return render_to_response('index.html', {'message':'Invalid Youtube URL', 'filename': '', 'file_found': False})
+        except Exception as e:
+            return render_to_response('index.html', {'message': e, 'filename': '', 'file_found': False})
             #return render(request, 'index.html', {'message': 'Invalid Youtube URL', 'filename':'', 'file_found': False})
         
         
