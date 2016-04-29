@@ -20,14 +20,14 @@ FILENAME = ""
 pA_path = '/home/ntxheehabnpam/ytdl/static/media/'
 def main(request):
     
-    #clear_media_directory()
+    clear_media_directory()
     return render(request, "index.html", {'message':'', 'filename':'', 'file_found': False})
     
 
 
 def search(request):
     
-    #clear_media_directory()
+    clear_media_directory()
     url = request.GET['url']
     start = request.GET['start_time']
     stop = request.GET['stop_time']
