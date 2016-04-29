@@ -97,7 +97,8 @@ def fetch_video(url):
     global FILENAME
     yt = YouTube(url)
     FILENAME = yt.filename
-
+    
+    print("HERE IS GOOD >>>>>>>>>>>>>>><><<??????????????????")
     (yt.filter('mp4')[-1]).download(pA_path)
     
 
