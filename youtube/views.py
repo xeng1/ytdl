@@ -29,9 +29,9 @@ def search(request):
     
     clear_media_directory()
     url = request.GET['url']
-   # start = request.GET['start_time']
-    #stop = request.GET['stop_time']
-   # option = request.GET['option']
+    start = request.GET['start_time']
+    stop = request.GET['stop_time']
+    option = request.GET['option']
     
 
     if validated(url, start, stop, option):
@@ -51,8 +51,6 @@ def search(request):
             
             filepath = pA_path + FILENAME + ".mp4"
             
-            return render_to_response('index.html', {'message':'', 'filename': filepath, 'file_found': True})
-            '''
             #if audio option was chosen, then we create the mp3 file
             if (option == 'audio'):
                 try:
@@ -69,7 +67,6 @@ def search(request):
                        
             else:
                 return render_to_response('index.html', {'message':'', 'filename': filepath, 'file_found': True})
-            '''
             
         except Exception as e:
             return render_to_response('index.html', {'message': e, 'filename': '', 'file_found': False})
