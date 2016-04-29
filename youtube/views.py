@@ -27,7 +27,7 @@ def main(request):
 
 def search(request):
     
-    #clear_media_directory()
+    clear_media_directory()
     url = request.GET['url']
     start = request.GET['start_time']
     stop = request.GET['stop_time']
@@ -49,14 +49,14 @@ def search(request):
             #fetch the vid
             fetch_video(url)
             
-            filepath = FILENAME + ".mp4"
+            filepath = pA_path + FILENAME + ".mp4"
             
             #if audio option was chosen, then we create the mp3 file
             if (option == 'audio'):
                 try:
                     fetch_audio(start, stop)
                     
-                    filepath =  FILENAME + ".mp3"
+                    filepath = pA_path + FILENAME + ".mp3"
                     
                     return render_to_response('index.html', {'message':'', 'filename': filepath, 'file_found': True})
                     #return render(request, 'index.html', {'message': '', 'filename': filepath, 'file_found': True})
@@ -97,8 +97,7 @@ def fetch_video(url):
     global FILENAME
     yt = YouTube(url)
     FILENAME = yt.filename
-    
-    print("HERE IS GOOD >>>>>>>>>>>>>>><><<??????????????????")
+
     (yt.filter('mp4')[-1]).download(pA_path)
     
 
