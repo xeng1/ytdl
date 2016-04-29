@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 FILENAME = ""
 
-pA_path = '/home/ntxheehabnpam/ytdl/static/media'
+pA_path = '/home/ntxheehabnpam/ytdl/static/media/'
 def main(request):
     
     clear_media_directory()
