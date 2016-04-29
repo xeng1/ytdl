@@ -33,8 +33,7 @@ def search(request):
     stop = request.GET['stop_time']
     option = request.GET['option']
     
-    print(type(request))
-   
+
     if validated(url, start, stop, option):
         '''
         fetch_video(url)
@@ -98,7 +97,7 @@ def fetch_video(url):
     global FILENAME
     yt = YouTube(url)
     FILENAME = yt.filename
-    print("FILENAME = ", FILENAME)
+
     (yt.filter('mp4')[-1]).download('static/media/')
     
 

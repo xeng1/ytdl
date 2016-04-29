@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*o4uaehkr%*^+7mpx*%peri)h-kir$2y26bt2b(=zw4-sh76cf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ntxheehabnpam.pythonanywhere.com']
 
 
 # Application definition
@@ -123,6 +123,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
+STATIC_ROOT = "ntxheehabnpam.pythonanywhere.com"
+
 FIXTURES_DIRS = (
     os.path.join(BASE_DIR, "fixtures"),
 )
@@ -131,3 +133,13 @@ MEDIA_URL = '/media/'
 MEDIAFILES_DIRS = (
     os.path.join(BASE_DIR, "media"),
 )
+
+SECURE_HSTS_SECONDS = 1
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True
+X_FRAME_OPTIONS = "DENY"
